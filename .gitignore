@@ -1,2 +1,8 @@
 token.json
 secretkey.txt
+generated_page.html
+timetable.csv
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd

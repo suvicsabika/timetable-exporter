@@ -1,0 +1,5 @@
+requests>=2.25.0,<3.0
+beautifulsoup4>=4.9.0
+pandas>=1.5
+ics>=0.7
+playwright>=1.15.0
