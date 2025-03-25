@@ -9,7 +9,9 @@ from .processor import events_to_dataframe, dict_to_events, export_to_csv, expor
 # NEXT TODO IN VERSION 1.1:
 # DONE >>> Use the ClassEvent: converting to ClassEvents -> objects -> list of objects
 # DONE >>> Create the .ics file
+# NEXT TODO IN VERSION 1.2:
 # IN PROGRESS >>> Send the e-mail with the .ics file
+# IN PROGRESS >>> E-mail template fixing
 # -----------------------------
 
 def main():

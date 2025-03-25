@@ -1,3 +1,7 @@
+# -----------------------------
+# timetable_exporter/scraping.py
+# -----------------------------
+
 import os
 from bs4 import BeautifulSoup
 import re
