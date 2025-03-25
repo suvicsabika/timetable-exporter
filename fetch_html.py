@@ -1,3 +1,7 @@
+# -----------------------------
+# timetable_exporter/fetch_html.py
+# -----------------------------
+
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 import os
 import sys

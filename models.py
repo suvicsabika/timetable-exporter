@@ -5,8 +5,8 @@
 from dataclasses import dataclass
 from datetime import datetime, time
 from ics import Event
-from bs4 import BeautifulSoup
-import re
+import pytz
+
 
 @dataclass
 class ClassEvent:
@@ -54,10 +54,15 @@ class ClassEvent:
 
     def to_ics_event(self) -> Event:
         """ics.Event object creation for export."""
+        cet = pytz.timezone("Europe/Budapest")
         event = Event()
         event.name = self.subject
-        event.begin = datetime.combine(self.date, self.start_time)
-        event.end = datetime.combine(self.date, self.end_time)
+        event.begin = cet.localize(datetime.combine(self.date, self.start_time))
+        event.end = cet.localize(datetime.combine(self.date, self.end_time))
         event.location = self.location
         event.description = f"Oktató: {self.lecturer}"
         return event
+
+
+    def __str__(self) -> str:
+        return f"{self.subject} - {self.date} - {self.start_time} - {self.end_time} - {self.location} - {self.lecturer} - {self.type}"

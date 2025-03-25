@@ -1,3 +1,4 @@
+import os
 from bs4 import BeautifulSoup
 import re
 from datetime import datetime
@@ -31,7 +32,10 @@ def parse_hungarian_date(text: str) -> str:
     return dt.strftime("%Y-%m-%d")
 
 def scrape_schedule_from_file(file_path: str) -> List[dict]:
-    with open(file_path, 'r', encoding='utf-8') as f:
+    base_dir = os.path.dirname(os.path.abspath(__file__))  # location of main.py
+    full_path = os.path.join(base_dir, file_path)
+
+    with open(full_path, "r", encoding="utf-8") as f:
         html = f.read()
 
     soup = BeautifulSoup(html, 'html.parser')

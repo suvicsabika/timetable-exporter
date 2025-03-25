@@ -4,12 +4,12 @@
 
 from .scraping import scrape_schedule_from_file
 from .fetch_html import fetch_dynamic_html
-from .processor import events_to_dataframe, export_to_ics, export_to_csv
+from .processor import events_to_dataframe, dict_to_events, export_to_csv, export_to_ics
 
 # NEXT TODO IN VERSION 1.1:
-# Use the ClassEvent: converting to ClassEvents -> objects -> list of objects
-# Create the .ics file
-# Send the e-mail with the .ics file
+# DONE >>> Use the ClassEvent: converting to ClassEvents -> objects -> list of objects
+# DONE >>> Create the .ics file
+# IN PROGRESS >>> Send the e-mail with the .ics file
 # -----------------------------
 
 def main():
@@ -27,9 +27,10 @@ def main():
     df = events_to_dataframe(events)
 
     export_to_csv(df, "timetable.csv")
-    #####################################################################################xxxx
     
-    # export_to_ics(events, "timetable.ics")
+    event_objects = dict_to_events(events)
+    
+    export_to_ics(event_objects, "timetable.ics")
 
     # print("Export done: timetable.csv és timetable_DATE_YEAR_COURSE.ics")
 
